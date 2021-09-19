@@ -40,8 +40,8 @@ router.post('/register', (req, res) => {
 
   User.findOne({ email }).then(user => {
     if (user) {
-      errors.push({ massage: '這個 Email 已經被註冊過了。' })
-      res.render('register', {
+      errors.push({ message: '這個 Email 已經註冊過了。' })
+      return res.render('register', {
         errors,
         name,
         email,
